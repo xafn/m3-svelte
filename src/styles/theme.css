@@ -1,0 +1,40 @@
+@import url(tokens.css);
+@import url(colors.module.css);
+@import url(typography.module.css);
+@import url(theme.light.css) (prefers-color-scheme: light);
+@import url(theme.dark.css) (prefers-color-scheme: dark);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+h1 {
+    font-family: var(--md-sys-typescale-display-large-font-family-name);
+    font-style: var(--md-sys-typescale-display-large-font-family-style);
+    font-weight: var(--md-sys-typescale-display-large-font-weight);
+    font-size: var(--md-sys-typescale-display-large-font-size);
+    letter-spacing: var(--md-sys-typescale-display-large-tracking);
+    line-height: var(--md-sys-typescale-display-large-height);
+    text-transform: var(--md-sys-typescale-display-large-text-transform);
+    text-decoration: var(--md-sys-typescale-display-large-text-decoration);
+}
+
+p {
+    font-family: var(--md-sys-typescale-body-large-font-family-name);
+  font-style: var(--md-sys-typescale-body-large-font-family-style);
+  font-weight: var(--md-sys-typescale-body-large-font-weight);
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  line-height: var(--md-sys-typescale-body-large-height);
+  text-transform: var(--md-sys-typescale-body-large-text-transform);
+  text-decoration: var(--md-sys-typescale-body-large-text-decoration);  
+}
+
+
+body {
+  background-color: var(--md-sys-color-background);
+  color: var( --md-sys-color-on-background);
+}
+
+.wrapper {
+    margin-inline: auto;
+    width: min(90%, 70rem);
+    margin-top: 4rem;
+}
