@@ -3,7 +3,7 @@
 
 	/**
 	 * Specify the type of FAB
-	 * @type {"default" | "small" | "large"}
+	 * @type {"default" | "small" | "large" | "extended"}
 	 */
 	export let type = 'default';
 	export let icon = '';
@@ -11,7 +11,8 @@
 	const iconSizes = {
 		default: 24,
 		small: 24,
-		large: 36
+		large: 36,
+		extended: 24
 	};
 </script>
 
@@ -21,10 +22,15 @@
 		<Svg viewBoxHeight={48} svgHeight={iconSizes[type]}>
 			<path d={icon} />
 		</Svg>
+		{#if type === 'extended'}
+			<div class="extended-text"><slot /></div>
+		{/if}
 	</div>
 </button>
 
 <style lang="scss">
+	@import '../../styles/typography.module.scss';
+
 	button {
 		background-color: transparent;
 		margin: 0;
@@ -70,6 +76,20 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+        gap: 8px;
+	}
+
+	.extended-text {
+		@include label-large;
+        color: var(--md-sys-color-on-primary-container);
+	}
+
+	[class*='fab-'] {
+		background-color: var(--md-sys-color-primary-container);
+
+		path {
+			fill: var(--md-sys-color-on-primary-container);
+		}
 	}
 
 	.fab-default {
@@ -77,11 +97,6 @@
 		width: 56px;
 		border-radius: 16px;
 		padding: 16px;
-		background-color: var(--md-sys-color-primary-container);
-
-		path {
-			fill: var(--md-sys-color-on-primary-container);
-		}
 	}
 
 	.fab-small {
@@ -89,11 +104,6 @@
 		width: 40px;
 		border-radius: 12px;
 		padding: 12px;
-		background-color: var(--md-sys-color-primary-container);
-
-		path {
-			fill: var(--md-sys-color-on-primary-container);
-		}
 	}
 
 	.fab-large {
@@ -101,10 +111,12 @@
 		width: 96px;
 		border-radius: 28px;
 		padding: 28px;
-		background-color: var(--md-sys-color-primary-container);
+	}
 
-		path {
-			fill: var(--md-sys-color-on-primary-container);
-		}
+	.fab-extended {
+		height: 56px;
+		min-width: 80px;
+		border-radius: 16px;
+		padding: 16px;
 	}
 </style>
