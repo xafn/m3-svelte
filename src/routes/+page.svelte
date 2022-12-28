@@ -75,9 +75,9 @@
 			<Button on:click={() => (snackbarOpen = !snackbarOpen)} type="tonal">yum</Button>
 		</div>
 
-		<Snackbar bind:open={snackbarOpen}>
+		<Snackbar bind:open={snackbarOpen} closeIcon>
 			<svelte:fragment slot="text">This is a snackbar yum yum</svelte:fragment>
-			<svelte:fragment slot="button">Dismiss</svelte:fragment>
+			<svelte:fragment slot="button">hey</svelte:fragment>
 		</Snackbar>
 	</div>
 </main>
