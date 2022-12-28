@@ -2,6 +2,7 @@
 	import Button from '$lib/Button/Button.svelte';
 	import Dialogue from '$lib/Dialogue/Dialogue.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
+	import Fab from '$lib/FAB/FAB.svelte';
 	import ProgressIndicator from '$lib/ProgressIndicator/ProgressIndicator.svelte';
 	import Snackbar from '$lib/Snackbar/Snackbar.svelte';
 	import Switch from '$lib/Switch/Switch.svelte';
@@ -43,6 +44,21 @@
 			</Button>
 			<Button type="outlined">Outlined</Button>
 			<Button type="text">Text</Button>
+
+			<div class="fabs">
+				<Fab
+					type="small"
+					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
+				/>
+				<Fab
+					type="default"
+					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
+				/>
+				<Fab
+					type="large"
+					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
+				/>
+			</div>
 		</div>
 
 		<div>
@@ -91,5 +107,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+	}
+
+	.fabs {
+		display: flex;
+		margin-top: 1rem;
+		gap: 1rem;
 	}
 </style>
