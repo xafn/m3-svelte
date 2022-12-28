@@ -19,6 +19,7 @@
 				<path d={icon} />
 			</Svg>
 		{/if}
+
 		<slot />
 	</div>
 </button>
@@ -53,6 +54,7 @@
 		gap: 8px;
 		box-sizing: border-box;
 	}
+
 	.icon-button {
 		padding-left: 16px;
 	}
@@ -151,7 +153,7 @@
 		color: var(--md-sys-color-primary);
 		padding: 0 12px;
 		@include defaultTint(var(--md-sys-color-primary));
-		
+
 		path {
 			fill: var(--md-sys-color-primary);
 		}

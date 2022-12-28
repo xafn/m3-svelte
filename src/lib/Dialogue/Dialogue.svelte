@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { quadInOut } from 'svelte/easing';
-	import Button from '$lib/Button/Button.svelte';
+	import Svg from '$lib/SVG/Svg.svelte';
 	export let open = false;
 	export let fullscreen = false;
 	export let icon = '';
@@ -16,16 +16,21 @@
 		transition:fade={{ easing: quadInOut, duration: 150 }}
 	>
 		<div class="main">
-			<div class="headline-small title">
+			<div class="header" class:icon>
+				{#if icon}
+					<Svg viewBoxHeight={48} svgHeight={24}>
+						<path d={icon} />
+					</Svg>
+				{/if}
 				{#if $$slots.title}
-					<div class="title headline-small">
+					<div class="title">
 						<slot name="title" />
 					</div>
 				{/if}
 			</div>
 
 			{#if $$slots.description}
-				<div class="description body-medium">
+				<div class="description">
 					<slot name="description" />
 				</div>
 			{/if}
@@ -33,27 +38,21 @@
 
 		<div class="buttons">
 			{#if $$slots.buttonSecondary}
-				<div on:click>
-				    <Button type="text" on:click>
-    					<slot name="buttonSecondary" />
-    				</Button>
-				</div>
+				<slot name="buttonSecondary" />
 			{/if}
 			{#if $$slots.buttonPrimary}
-				<div on:click>
-				    <Button type="text" on:click>
-    					<slot name="buttonPrimary" />
-    				</Button>
-				</div>
+				<slot name="buttonPrimary" />
 			{/if}
 		</div>
 
 		<div class="slot"><slot /></div>
 	</div>
-	<span class="scrim" on:click={() => (open = !open)}/>
+	<span class="scrim" on:click={() => (open = !open)} on:keypress={() => (open = !open)} />
 {/if}
 
 <style lang="scss">
+	@import '../../styles/typography.module.scss';
+
 	.modal {
 		background-color: var(--md-sys-color-surface);
 		min-width: 280px;
@@ -71,23 +70,39 @@
 			display: none;
 		}
 	}
-	.title {
-		color: var(--md-sys-color-on-surface);
+
+	.header {
 		display: flex;
 		justify-content: flex-start;
+		gap: 16px;
+	}
+
+	.icon {
+		flex-direction: column;
+		align-items: center;
+
+		path {
+			fill: var(--md-sys-color-secondary);
+		}
+	}
+
+	.title {
+		@include headline-small;
+		color: var(--md-sys-color-on-surface);
 	}
 
 	.description {
-		padding-top: 16px;
+		@include body-medium;
 		color: var(--md-sys-color-on-surface-variant);
+		padding-top: 16px;
 	}
 
-    .buttons {
-        padding-top: 24px;
-        display: flex;
-        gap: 8px;
-        justify-content: flex-end;
-    }
+	.buttons {
+		padding-top: 24px;
+		display: flex;
+		gap: 8px;
+		justify-content: flex-end;
+	}
 
 	.scrim {
 		position: fixed;
