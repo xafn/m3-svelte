@@ -43,7 +43,7 @@
 		border-radius: 4px;
 		min-width: 200px;
 		max-width: 560px;
-		position: absolute;
+		position: fixed;
 		margin-left: 36px;
 		margin-right: 36px;
 		left: 0;

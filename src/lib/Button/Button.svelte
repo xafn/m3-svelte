@@ -1,31 +1,60 @@
 <script>
+	import Svg from '$lib/SVG/Svg.svelte';
+
 	/**
 	 * Specify the type of button
 	 * @type {"elevated" | "filled" | "tonal" | "outlined" | "text" | "snackbar"}
 	 */
 	export let type = 'filled';
 	export let disabled = false;
+	export let icon = '';
 </script>
 
-<button on:click class="button-{type}">
+<button on:click class="{icon ? 'icon-button' : ''} button-{type}">
 	<span class="tint" />
-	<slot />
+
+	<div class="slot">
+		{#if icon}
+			<Svg viewBoxHeight={48} svgHeight={18}>
+				<path d={icon} />
+			</Svg>
+		{/if}
+		<slot />
+	</div>
 </button>
 
 <style lang="scss">
 	@import '../../styles/typography.module.scss';
 
+	button {
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+
 	[class*='button-'] {
 		@include label-large;
-		border: none;
 		cursor: pointer;
 		overflow: hidden;
 		position: relative;
 		user-select: none;
+		display: inline-flex;
+		vertical-align: top;
+		align-items: center;
 		height: 40px;
 		border-radius: 20px;
 		padding: 0 24px;
 		transition: all 0.2s var(--md-sys-motion-easing-standard);
+	}
+
+	.slot {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		box-sizing: border-box;
+	}
+	.icon-button {
+		padding-left: 16px;
 	}
 
 	.tint {
@@ -58,6 +87,9 @@
 		color: var(--md-sys-color-primary);
 		box-shadow: var(--md-sys-elevation-level1);
 
+		path {
+			fill: var(--md-sys-color-primary);
+		}
 		.tint {
 			background-color: var(--md-sys-color-primary);
 			opacity: 0.08;
@@ -80,6 +112,10 @@
 		color: var(--md-sys-color-on-primary);
 		@include defaultTint(var(--md-sys-color-on-primary));
 
+		path {
+			fill: var(--md-sys-color-on-primary);
+		}
+
 		&:hover {
 			box-shadow: var(--md-sys-elevation-level1);
 		}
@@ -89,6 +125,10 @@
 		background-color: var(--md-sys-color-secondary-container);
 		color: var(--md-sys-color-on-secondary-container);
 		@include defaultTint(var(--md-sys-color-on-secondary-container));
+
+		path {
+			fill: var(--md-sys-color-on-secondary-container);
+		}
 
 		&:hover {
 			box-shadow: var(--md-sys-elevation-level1);
@@ -100,6 +140,10 @@
 		color: var(--md-sys-color-primary);
 		border: 1px solid var(--md-sys-color-outline);
 		@include defaultTint(var(--md-sys-color-primary));
+
+		path {
+			fill: var(--md-sys-color-primary);
+		}
 	}
 
 	.button-text {
@@ -107,6 +151,10 @@
 		color: var(--md-sys-color-primary);
 		padding: 0 12px;
 		@include defaultTint(var(--md-sys-color-primary));
+		
+		path {
+			fill: var(--md-sys-color-primary);
+		}
 	}
 	.button-snackbar {
 		background-color: transparent;
