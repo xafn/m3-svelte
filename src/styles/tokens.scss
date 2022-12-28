@@ -297,4 +297,6 @@
   --md-sys-motion-easing-legacy-decelerate: cubic-bezier(0, 0, 0.2, 1);
   --md-sys-motion-easing-legacy-accelerate: cubic-bezier(0.4, 0, 1, 1);
   --md-sys-motion-path: Linear;
+  /* shadows */
+  --md-sys-elevation-level1: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
