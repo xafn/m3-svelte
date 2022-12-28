@@ -6,6 +6,7 @@
 	import ProgressIndicator from '$lib/ProgressIndicator/ProgressIndicator.svelte';
 	import Snackbar from '$lib/Snackbar/Snackbar.svelte';
 	import Switch from '$lib/Switch/Switch.svelte';
+	import TextInput from '$lib/TextInput/TextInput.svelte';
 	let modalOpen = false;
 	let snackbarOpen = false;
 </script>
@@ -75,7 +76,10 @@
 			<Button on:click={() => (modalOpen = !modalOpen)} type="tonal">Open Dialogue</Button>
 		</div>
 
-		<Dialog bind:open={modalOpen} icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z">
+		<Dialog
+			bind:open={modalOpen}
+			icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
+		>
 			<svelte:fragment slot="title">This is a dialogue</svelte:fragment>
 			<svelte:fragment slot="description">
 				Dear reader, hope you have a wonderful day. And your tomorrow will be even better. First I
@@ -100,7 +104,13 @@
 			<svelte:fragment slot="text">This is a snackbar yum yum</svelte:fragment>
 			<svelte:fragment slot="button">hey</svelte:fragment>
 		</Snackbar>
+
+		<div>
+			<div class="label-large">Text Input</div>
+			<TextInput />
+		</div>
 	</div>
+
 </main>
 
 <style>
