@@ -34,14 +34,14 @@
 		<div class="buttons">
 			{#if $$slots.buttonSecondary}
 				<div on:click>
-				    <Button on:click>
+				    <Button type="text" on:click>
     					<slot name="buttonSecondary" />
     				</Button>
 				</div>
 			{/if}
 			{#if $$slots.buttonPrimary}
 				<div on:click>
-				    <Button on:click>
+				    <Button type="text" on:click>
     					<slot name="buttonPrimary" />
     				</Button>
 				</div>

@@ -33,6 +33,7 @@
 	}
 
 	progress {
+		margin: 0;
 		display: block;
 		&::-webkit-progress-bar {
 			background-color: var(--md-sys-color-surface-variant);

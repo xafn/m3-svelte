@@ -3,7 +3,7 @@
 	 * Specify the type of button
 	 * @type {"elevated" | "filled" | "tonal" | "outlined" | "text"}
 	 */
-	export let type = 'text';
+	export let type = 'filled';
 	export let disabled = false;
 </script>
 
@@ -19,25 +19,13 @@
 		@include label-large;
 		border: none;
 		cursor: pointer;
-		height: 40px;
-		border-radius: 20px;
 		overflow: hidden;
 		position: relative;
-	}
-
-	@mixin defaultTint($color) {
-		.tint {
-			background-color: $color;
-		}
-
-		&:hover .tint {
-			opacity: 0.08;
-		}
-
-		&:focus .tint,
-		&:active .tint {
-			opacity: 0.16;
-		}
+		user-select: none;
+		height: 40px;
+		border-radius: 20px;
+		padding: 0 24px;
+		transition: all 0.2s var(--md-sys-motion-easing-standard);
 	}
 
 	.tint {
@@ -52,12 +40,16 @@
 		transition: all 0.2s var(--md-sys-motion-easing-standard);
 	}
 
-	.button- {
-		&elevated,
-		&filled,
-		&tonal,
-		&outlined {
-			padding: 0 24px;
+	@mixin defaultTint($color) {
+		.tint {
+			background-color: $color;
+		}
+
+		&:hover .tint {
+			opacity: 0.08;
+		}
+		&:active .tint {
+			opacity: 0.16;
 		}
 	}
 
@@ -71,11 +63,13 @@
 			opacity: 0.08;
 		}
 
-		&:hover .tint {
-			opacity: 0.16;
+		&:hover {
+			box-shadow: var(--md-sys-elevation-level2);
+			&.tint {
+				opacity: 0.16;
+			}
 		}
-
-		&:focus .tint,
+		
 		&:active .tint {
 			opacity: 0.2;
 		}
@@ -85,12 +79,20 @@
 		background-color: var(--md-sys-color-primary);
 		color: var(--md-sys-color-on-primary);
 		@include defaultTint(var(--md-sys-color-on-primary));
+
+		&:hover {
+			box-shadow: var(--md-sys-elevation-level1);
+		}
 	}
 
 	.button-tonal {
 		background-color: var(--md-sys-color-secondary-container);
 		color: var(--md-sys-color-on-secondary-container);
 		@include defaultTint(var(--md-sys-color-on-secondary-container));
+
+		&:hover {
+			box-shadow: var(--md-sys-elevation-level1);
+		}
 	}
 
 	.button-outlined {

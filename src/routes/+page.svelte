@@ -6,6 +6,7 @@ import Dialogue from '$lib/Dialogue/Dialogue.svelte';
 	let modalOpen = false;
 </script>
 
+<ProgressIndicator />
 <main class="wrapper">
 	<h1>Material 3 Svelte</h1>
 	<p>Svelte UI component library for Google's Material 3.</p>
@@ -18,7 +19,6 @@ import Dialogue from '$lib/Dialogue/Dialogue.svelte';
 	<br />
 	<div>
 		<div class="label-large">Progress Indicator</div>
-		<ProgressIndicator />
 		<br />
 		<ProgressIndicator value={29} />
 	</div>
@@ -32,7 +32,7 @@ import Dialogue from '$lib/Dialogue/Dialogue.svelte';
 
 	<br/>
 	<br/>
-    <Button on:click={() => (modalOpen = !modalOpen)} type="text">Open Dialogue</Button>
+    <Button on:click={() => (modalOpen = !modalOpen)} type="tonal">Open Dialogue</Button>
 	<div>
 		<Dialogue bind:open={modalOpen}>
 			<svelte:fragment slot="title">This is a dialogue</svelte:fragment>
@@ -43,7 +43,7 @@ import Dialogue from '$lib/Dialogue/Dialogue.svelte';
 				this is very hard for me. I never told it to anyone. But I feel like you are ready for the
 				real thing. Again, sorry for the bad english. Now to my big unfake. I'm actually 100% a
 				girl. thought do it a little earlier than you predicted. Sorry also for this. Have a nice
-				day. Best, the creatures under you skin
+				day. Best, the creatures under your skin
 			</svelte:fragment>
             <svelte:fragment slot="buttonSecondary">
                 Close
