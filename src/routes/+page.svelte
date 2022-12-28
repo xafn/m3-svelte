@@ -3,8 +3,10 @@
 	import Dialogue from '$lib/Dialogue/Dialogue.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import ProgressIndicator from '$lib/ProgressIndicator/ProgressIndicator.svelte';
+	import Snackbar from '$lib/Snackbar/Snackbar.svelte';
 	import Switch from '$lib/Switch/Switch.svelte';
 	let modalOpen = false;
+	let snackbarOpen = false;
 </script>
 
 <ProgressIndicator />
@@ -41,6 +43,15 @@
 			<div class="label-large">Dialogue</div>
 			<Button on:click={() => (modalOpen = !modalOpen)} type="tonal">Open Dialogue</Button>
 		</div>
+		<div>
+			<div class="label-large">Snackbar</div>
+			<Button on:click={() => (snackbarOpen = !snackbarOpen)} type="tonal">yum</Button>
+		</div>
+
+		<Snackbar bind:open={snackbarOpen}>
+			<svelte:fragment slot="text">This is a snackbar yum yum</svelte:fragment>
+			<svelte:fragment slot="button">Dismiss</svelte:fragment>
+		</Snackbar>
 	</div>
 	<Dialogue bind:open={modalOpen}>
 		<svelte:fragment slot="title">This is a dialogue</svelte:fragment>

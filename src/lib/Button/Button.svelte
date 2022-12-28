@@ -1,7 +1,7 @@
 <script>
 	/**
 	 * Specify the type of button
-	 * @type {"elevated" | "filled" | "tonal" | "outlined" | "text"}
+	 * @type {"elevated" | "filled" | "tonal" | "outlined" | "text" | "snackbar"}
 	 */
 	export let type = 'filled';
 	export let disabled = false;
@@ -65,11 +65,11 @@
 
 		&:hover {
 			box-shadow: var(--md-sys-elevation-level2);
-			&.tint {
+			.tint {
 				opacity: 0.16;
 			}
 		}
-		
+
 		&:active .tint {
 			opacity: 0.2;
 		}
@@ -105,6 +105,12 @@
 	.button-text {
 		background-color: transparent;
 		color: var(--md-sys-color-primary);
+		padding: 0 12px;
+		@include defaultTint(var(--md-sys-color-primary));
+	}
+	.button-snackbar {
+		background-color: transparent;
+		color: var(--md-sys-color-inverse-primary);
 		padding: 0 12px;
 		@include defaultTint(var(--md-sys-color-primary));
 	}
