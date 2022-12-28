@@ -1,17 +1,20 @@
 <script lang="ts">
-	import Button from '$lib/Button/Button.svelte';
 	import { slide, fade } from 'svelte/transition';
 	import { expoOut } from 'svelte/easing';
+	
+	import Button from '$lib/Button/Button.svelte';
 	import Svg from '$lib/SVG/Svg.svelte';
 	export let open = false;
 	export let closeIcon = false;
+	export let dismissTime = 3000;
 
 	let timeout: ReturnType<typeof setTimeout>;
 	$: if (open) {
 		clearTimeout(timeout);
-		timeout = setTimeout(() => (open = false), 3000);
+		timeout = setTimeout(() => (open = false), dismissTime);
 	}
 </script>
+
 
 {#if open}
 	<div
@@ -61,6 +64,7 @@
 		position: fixed;
 		margin-left: 36px;
 		margin-right: 36px;
+		z-index: 99;
 		left: 0;
 		right: 0;
 		bottom: 2rem;
