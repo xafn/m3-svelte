@@ -1,6 +1,6 @@
 <script>
 	import Button from '$lib/Button/Button.svelte';
-	import Dialogue from '$lib/Dialogue/Dialogue.svelte';
+	import Dialog from '$lib/Dialog/Dialog.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import Fab from '$lib/FAB/FAB.svelte';
 	import ProgressIndicator from '$lib/ProgressIndicator/ProgressIndicator.svelte';
@@ -75,7 +75,7 @@
 			<Button on:click={() => (modalOpen = !modalOpen)} type="tonal">Open Dialogue</Button>
 		</div>
 
-		<Dialogue bind:open={modalOpen} icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z">
+		<Dialog bind:open={modalOpen} icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z">
 			<svelte:fragment slot="title">This is a dialogue</svelte:fragment>
 			<svelte:fragment slot="description">
 				Dear reader, hope you have a wonderful day. And your tomorrow will be even better. First I
@@ -89,7 +89,7 @@
 			<svelte:fragment slot="buttonPrimary">
 				<Button type="text" on:click={() => (modalOpen = !modalOpen)}>OK</Button>
 			</svelte:fragment>
-		</Dialogue>
+		</Dialog>
 
 		<div>
 			<div class="label-large">Snackbar</div>

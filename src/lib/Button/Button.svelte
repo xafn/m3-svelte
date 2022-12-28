@@ -2,17 +2,35 @@
 	import Svg from '$lib/SVG/Svg.svelte';
 
 	/**
-	 * Specify the type of button
+	 * Specify the type of button. Snackbar type should not be used anywhere except snackbars.
 	 * @type {"elevated" | "filled" | "tonal" | "outlined" | "text" | "snackbar"}
 	 */
 	export let type = 'filled';
 	export let disabled = false;
+
+	/**
+	 * Pass in an SVG path.
+	 */
 	export let icon = '';
 </script>
 
+<!-- 
+  @component
+  **Common buttons**  
+  Buttons help people initiate actions, from sending an email, to sharing a document, to liking a 
+  post. There are five types of common buttons: elevated, filled, filled tonal, outlined, and text.
+  
+  *** 
+  **Example usage**   
+   
+  ```tsx
+	<Button type="filled" on:click={makePayment}>Make payment</Button>
+  ```
+  ***
+  [M3 guidelines](https://m3.material.io/components/buttons/guidelines)
+ -->
 <button on:click class="{icon ? 'icon-button' : ''} button-{type}">
 	<span class="tint" />
-
 	<div class="slot">
 		{#if icon}
 			<Svg viewBoxHeight={48} svgHeight={18}>

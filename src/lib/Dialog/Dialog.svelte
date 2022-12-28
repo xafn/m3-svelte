@@ -4,9 +4,38 @@
 	import Svg from '$lib/SVG/Svg.svelte';
 	export let open = false;
 	export let fullscreen = false;
+	/**
+	 * Pass in an SVG path. Do not add an icon if there is no title.
+	 */
 	export let icon = '';
 </script>
 
+<!-- 
+  @component
+  **Dialogs**  
+  Dialogs can require an action, communicate information, or help users 
+  accomplish a task. There are two types of dialogs: basic and full-screen.
+  
+  *** 
+  **Example usage**   
+   
+  ```tsx
+  <Dialog>
+	   <svelte:fragment slot="title">Hey there!</svelte:fragment>
+	   <svelte:fragment slot="description">
+			A dialog is a type of modal window that appears in front of app content 
+			to provide critical information, or prompt for decision to be made.
+		</svelte:fragment>
+		<svelte:fragment slot="primaryButton">
+			<Button on:click={() => open = !open}>
+				Dismiss
+			</Button>
+		</svelte:fragment>
+  </Dialog>
+  ```
+  ***
+  [M3 guidelines](https://m3.material.io/components/dialogs/guidelines)
+ -->
 {#if open}
 	<div
 		class="modal"

@@ -2,7 +2,7 @@
 	import Svg from '$lib/SVG/Svg.svelte';
 
 	/**
-	 * Specify the type of FAB
+	 * Specify the type of FAB.
 	 * @type {"default" | "small" | "large" | "extended"}
 	 */
 	export let type = 'default';
@@ -16,6 +16,26 @@
 	};
 </script>
 
+<!-- 
+  @component
+  **FABs**  
+  The FAB represents the most important action on a screen. It puts key actions within reach. 
+  There are four types of floating action buttons: default FAB, small FAB, large FAB, and extended FAB.
+
+*** 
+**Example usage**   
+```tsx
+	<Fab
+		type="extended"
+		icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
+	>
+		Edit
+	</Fab>
+```
+***
+[M3 FAB guidelines](https://m3.material.io/components/floating-action-button/guidelines)  
+[M3 Extended FAB guidelines](https://m3.material.io/components/extended-fab/guidelines)
+-->
 <button on:click class="fab-{type}">
 	<span class="tint" />
 	<div class="slot">
@@ -76,12 +96,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-        gap: 8px;
+		gap: 8px;
 	}
 
 	.extended-text {
 		@include label-large;
-        color: var(--md-sys-color-on-primary-container);
+		color: var(--md-sys-color-on-primary-container);
 	}
 
 	[class*='fab-'] {

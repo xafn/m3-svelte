@@ -3,6 +3,24 @@
 	export let max = 100;
 </script>
 
+<!-- 
+  @component
+  **Progress Indicators**  
+  Progress indicators inform users about the status of ongoing processes, such as loading 
+  an app or submitting a form. There are two types of progress indicators: Linear and circular.
+  When no value is passed, the progress bar becomes indeterminate. Due to CSS limitations, 
+  indeterminate progress bars do not use semantic HTML `<progress/>` tags.
+
+*** 
+**Example usage**   
+```tsx
+	<ProgressIndicator value={loadingProgress}/>
+	<ProgressIndicator/>
+```
+***
+[M3 guidelines](https://m3.material.io/components/progress-indicators/guidelines)  
+-->
+
 <!-- It's impossible to animate the value of a progress element as far as I know -->
 <svelte:element
 	this={!value ? 'div' : 'progress'}
