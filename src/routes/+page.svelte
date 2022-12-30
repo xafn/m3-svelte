@@ -4,7 +4,6 @@
 	import Dialog from '$lib/Dialog/Dialog.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import Fab from '$lib/FAB/FAB.svelte';
-	import NavRail from '$lib/NavRail/NavRail.svelte';
 	import ProgressIndicator from '$lib/ProgressIndicator/ProgressIndicator.svelte';
 	import Snackbar from '$lib/Snackbar/Snackbar.svelte';
 	import Switch from '$lib/Switch/Switch.svelte';
@@ -15,7 +14,7 @@
 </script>
 
 <ProgressIndicator />
-<NavRail>
+<!-- <NavRail> -->
 	<svelte:fragment slot="fab">
 		<Fab
 			type="default"
