@@ -15,6 +15,7 @@
 
     onMount(() => {
         initalClientHeight = sheetHeight;
+        console.log(initalClientHeight);
     });
 
 	$: if (!open) {
