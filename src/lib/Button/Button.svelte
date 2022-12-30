@@ -7,6 +7,7 @@
 	 */
 	export let type = 'filled';
 	export let disabled = false;
+	export let fullWidth = false;
 
 	/**
 	 * Pass in an SVG path.
@@ -29,7 +30,7 @@
   ***
   [M3 guidelines](https://m3.material.io/components/buttons/guidelines)
  -->
-<button on:click class="{icon ? 'icon-button' : ''} button-{type}">
+<button on:click class="{icon ? 'icon-button' : ''} button-{type}" class:fullWidth>
 	<span class="tint" />
 	<div class="slot">
 		{#if icon}
@@ -64,6 +65,11 @@
 		border-radius: 20px;
 		padding: 0 24px;
 		transition: all 0.2s var(--md-sys-motion-easing-standard);
+	}
+
+	.fullWidth {
+		width: 100%;
+		justify-content: center;
 	}
 
 	.slot {
