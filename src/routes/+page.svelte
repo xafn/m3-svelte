@@ -14,14 +14,6 @@
 </script>
 
 <ProgressIndicator />
-<!-- <NavRail> -->
-	<svelte:fragment slot="fab">
-		<Fab
-			type="default"
-			icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-		/>
-	</svelte:fragment>
-</NavRail>
 <main class="wrapper">
 	<h1>Material 3 Svelte</h1>
 	<p>Svelte UI component library for Google's Material 3.</p>
