@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { expoOut } from 'svelte/easing';
 
@@ -8,14 +9,19 @@
 	let drag = false;
 	let noUserSelect = true;
 	let top = 0;
-	let timeout;
-	let clientHeight;
+    let timeout: ReturnType<typeof setTimeout>;
+	let sheetHeight: number;
+	let initalClientHeight: number;
+
+    onMount(() => {
+        initalClientHeight = sheetHeight;
+    });
 
 	$: if (!open) {
 		top = 0;
 	}
 
-	$: if (clientHeight < 100) {
+	$: if (sheetHeight < 100) {
 		open = false;
 	}
 
@@ -42,9 +48,9 @@
 {#if open}
 	<div
 		class="bottom-sheet"
-		bind:clientHeight
-		style="height: fit-content; {top ? 'max-height: 100%;' : ''}"
-		style:height="{clientHeight + top}px"
+		bind:clientHeight={sheetHeight}
+		style={top ? 'max-height: 100%;' : ''}
+		style:height="{initalClientHeight + top}px"
 		transition:fly|local={{ y: 100, duration: 300, easing: expoOut }}
 	>
 		{#if dragHandle}
@@ -71,18 +77,18 @@
 		width: 100%;
 		max-width: 640px;
 		max-height: 50%;
-		margin-top: 72px;
+		transform: translate(-50%, 0%);
 		position: fixed;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		overflow-y: scroll;
-		transform: translate(-50%, 0%);
 		left: 50%;
 		bottom: 0;
 		border-radius: 28px 28px 0 0;
 		z-index: 999;
 		box-shadow: var(--md-sys-elevation-level1);
+        transition: all 0.2s var(--md-sys-motion-easing-standard);
 
 		// temporary
 		user-select: none;
