@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@neodrag/svelte": "^1.2.4",
 		"sass": "^1.57.1"
 	}
 }

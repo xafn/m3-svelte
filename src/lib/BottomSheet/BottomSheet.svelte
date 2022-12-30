@@ -1,61 +1,64 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
+	import { draggable } from '@neodrag/svelte';
+
 	import { expoOut } from 'svelte/easing';
 
 	export let open = false;
 	export let dragHandle = true;
 
-	let drag = false;
 	let noUserSelect = true;
-	let top = 0;
-    let timeout: ReturnType<typeof setTimeout>;
+	let sheetTop = 0;
 	let sheetHeight: number;
 	let initalClientHeight: number;
+	let screenHeight: number
+	let sheet: HTMLElement;
 
-    onMount(() => {
-        initalClientHeight = sheetHeight;
-        console.log(initalClientHeight);
-    });
+
+	onMount(() => {
+		initalClientHeight = sheetHeight;
+	});
+
+
+	let maxheight = false;
+
+
+	function dragger(e) {
+		sheetTop = e.detail.domRect.y;
+		screenHeight = e.path[5].clientHeight;
+	}
+
+	function dragStart() {
+		maxheight = true;
+	}
 
 	$: if (!open) {
-		top = 0;
+		maxheight = false;
 	}
 
-	$: if (sheetHeight < 100) {
-		open = false;
-	}
-
-	function onMouseDown() {
-		drag = true;
-		noUserSelect = true;
-	}
-
-	function onMouseUp() {
-		drag = false;
-		clearTimeout(timeout);
-		timeout = setTimeout(() => (noUserSelect = false), 1000);
-	}
-
-	function onMouseMove(e) {
-		if (drag) {
-			top -= e.movementY;
-		}
-	}
+	// $: if (screenHeight - sheetTop < screenHeight / 2.5) {
+	// 	open = false;
+	// }
 </script>
-
-<svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
 {#if open}
 	<div
 		class="bottom-sheet"
+		class:maxheight
+		bind:this={sheet}
 		bind:clientHeight={sheetHeight}
-		style={top ? 'max-height: 100%;' : ''}
-		style:height="{initalClientHeight + top}px"
+		use:draggable={{
+			handle: '.drag-handle-touch-target',
+			axis: 'y',
+			bounds: { top: 0, bottom: -initalClientHeight * 2 }
+		}}
+		on:neodrag={dragger}
+		on:neodrag:start={dragStart}
 		transition:fly|local={{ y: 100, duration: 300, easing: expoOut }}
 	>
 		{#if dragHandle}
-			<div class="drag-handle-touch-target" on:mousedown={onMouseDown}>
+			<div class="drag-handle-touch-target">
 				<div class="drag-handle" />
 			</div>
 		{/if}
@@ -78,18 +81,21 @@
 		width: 100%;
 		max-width: 640px;
 		max-height: 50%;
-		transform: translate(-50%, 0%);
+		margin-right: auto;
+		margin-left: auto;
 		position: fixed;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		overflow-y: scroll;
 		left: 50%;
+		top: 50%;
+		height: 100vh;
 		bottom: 0;
 		border-radius: 28px 28px 0 0;
 		z-index: 999;
 		box-shadow: var(--md-sys-elevation-level1);
-        transition: all 0.2s var(--md-sys-motion-easing-standard);
+		transition: all 0.4s var(--md-sys-motion-easing-standard);
 
 		// temporary
 		user-select: none;
@@ -106,8 +112,8 @@
 		opacity: 0.4;
 	}
 
-	.noUserSelect {
-		user-select: none;
+	.maxheight {
+		max-height: 100%;
 	}
 
 	.drag-handle-touch-target {

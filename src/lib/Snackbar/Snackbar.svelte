@@ -50,6 +50,7 @@
 
 	.snackbar {
         display: flex;
+		box-sizing: border-box;
 		justify-content: space-between;
 		padding-top: 4px;
 		padding-bottom: 4px;
@@ -97,6 +98,7 @@
 
     .closeIcon {
         padding-right: 12px;
+		fill: var(--md-sys-color-inverse-on-surface);
     }
 
     .button {
