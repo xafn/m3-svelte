@@ -82,23 +82,17 @@
 			bottom: 2px;
 		}
 
-		+.slider::after {
+		+ .slider::after {
 			background-color: var(--md-sys-color-on-surface-variant);
 			transform: translateX(20px);
 		}
 	}
 
-	.switch:active .slider:before{
-		animation: active 0.5s var(--md-sys-motion-easing-standard) 0.1s forwards;
-	}
-
-	@keyframes active {
-		to {
-			height: 28px;
-			width: 28px;
-			left: 0;
-            bottom: 0;
-		}
+	.switch:active .slider:before {
+		height: 28px;
+		width: 28px;
+		left: 0;
+		bottom: 0;
 	}
 
 	.switch:hover {
