@@ -1,7 +1,6 @@
 {
-	"name": "m3-svelte",
+	"name": "svelte-m3",
 	"version": "0.0.1",
-	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
