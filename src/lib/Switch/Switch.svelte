@@ -48,6 +48,23 @@
 			background-color: var(--md-sys-color-outline);
 			transition: all 0.4s var(--md-sys-motion-easing-standard);
 		}
+
+		&::after {
+			position: absolute;
+			opacity: 0;
+			left: -10px;
+			top: -10px;
+			content: '';
+			border-radius: 100px;
+			height: 48px;
+			width: 48px;
+			background-color: var(--md-sys-color-on-surface);
+			transition: all 0.4s var(--md-sys-motion-easing-standard);
+		}
+
+		&:hover::after {
+			opacity: 0.08;
+		}
 	}
 
 	input:checked {
@@ -64,9 +81,14 @@
 			left: 2px;
 			bottom: 2px;
 		}
+
+		+.slider::after {
+			background-color: var(--md-sys-color-on-surface-variant);
+			transform: translateX(20px);
+		}
 	}
 
-	.switch:active .slider:before {
+	.switch:active .slider:before{
 		animation: active 0.5s var(--md-sys-motion-easing-standard) 0.1s forwards;
 	}
 
