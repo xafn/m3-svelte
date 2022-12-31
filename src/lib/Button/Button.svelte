@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Svg from '$lib/SVG/Svg.svelte';
 
 	/**
@@ -13,6 +13,13 @@
 	 * Pass in an SVG path.
 	 */
 	export let icon = '';
+
+	let ripple = false;
+	let timeout: ReturnType<typeof setTimeout>;
+	function rippleAnimation() {
+		ripple = false;
+		timeout = setTimeout(() => (ripple = true), 1);
+	}
 </script>
 
 <!-- 
@@ -30,7 +37,15 @@
   ***
   [M3 guidelines](https://m3.material.io/components/buttons/guidelines)
  -->
-<button on:click class="{icon ? 'icon-button' : ''} button-{type}" class:fullWidth>
+<button
+	on:click
+	on:click={rippleAnimation}
+	class="{icon ? 'icon-button' : ''} button-{type}"
+	class:fullWidth
+>
+	{#if ripple}
+		<span class="ripple" class:animation={ripple} />
+	{/if}
 	<span class="tint" />
 	<div class="slot">
 		{#if icon}
@@ -39,7 +54,9 @@
 			</Svg>
 		{/if}
 
-		<slot />
+		{#if $$slots}
+			<slot />
+		{/if}
 	</div>
 </button>
 
@@ -47,13 +64,10 @@
 	@import '../../styles/typography.module.scss';
 
 	button {
+		@include label-large;
 		margin: 0;
 		padding: 0;
 		border: none;
-	}
-
-	[class*='button-'] {
-		@include label-large;
 		cursor: pointer;
 		overflow: hidden;
 		position: relative;
@@ -66,6 +80,34 @@
 		padding: 0 24px;
 		transition: all 0.2s var(--md-sys-motion-easing-standard);
 	}
+
+	.ripple {
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		transition: all 0.2s var(--md-sys-motion-easing-standard);
+		pointer-events: none;
+		aspect-ratio: 1 / 1;
+		margin: auto;
+		border-radius: 100px;
+
+		@keyframes ripple {
+		to {
+			transform: scale(8);
+			opacity: 0;
+		}
+	}
+
+		&.animation {
+			opacity: 0.08;
+			animation: ripple 1s forwards ease-out;
+		}
+	}
+
 
 	.fullWidth {
 		width: 100%;
@@ -96,7 +138,8 @@
 	}
 
 	@mixin defaultTint($color) {
-		.tint {
+		.tint,
+		.ripple {
 			background-color: $color;
 		}
 
@@ -116,7 +159,8 @@
 		path {
 			fill: var(--md-sys-color-primary);
 		}
-		.tint {
+		.tint,
+		.ripple {
 			background-color: var(--md-sys-color-primary);
 			opacity: 0.08;
 		}
