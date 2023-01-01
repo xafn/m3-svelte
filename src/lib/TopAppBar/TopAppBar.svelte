@@ -35,7 +35,7 @@
 
 	header {
 		box-sizing: border-box;
-		padding: 0 16px;
+		padding: 0 1rem;
 		width: 100%;
 		top: 0;
 		left: 0;
@@ -88,11 +88,11 @@
 
 	.trailing-icons {
 		display: flex;
-		gap: 24px;
+		gap: 1.5rem;
 	}
 
 	.bar-center {
-		height: 64px;
+		height: 4rem;
 
 		.top {
 			justify-content: space-between;
@@ -105,17 +105,17 @@
 			left: 0;
 			right: 0;
 			text-align: center;
-			padding-left: 24px;
-			padding-right: 24px;
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
 		}
 	}
 
 	.bar-small {
-		height: 64px;
+		height: 4rem;
 
 		.title {
 			align-items: flex-start;
-			padding-left: 16px;
+			padding-left: 1rem;
 		}
 
 		.trailing-icons {
@@ -129,15 +129,15 @@
 			flex-direction: column;
 			justify-content: space-between;
 			// temp padding top (need to do icon buttons)
-			padding-top: 12px;
-			padding-bottom: 20px;
-			padding-left: 16px;
-			padding-right: 16px;
+			padding-top: 0.75rem;
+			padding-bottom: 1.25rem;
+			padding-left: 1rem;
+			padding-right: 1rem;
 			align-items: flex-start;
 
 			// temp
 			.nav-icon {
-				margin-left: -8px;
+				margin-left: -0.5rem;
 			}
 
 			.trailing-icons {
@@ -146,14 +146,14 @@
 		}
 
 		&medium {
-			height: 112px;
+			height: 7rem;
 		}
 		&large {
-			height: 152px;
+			height: 9.5rem;
 		}
 	}
 
-	// @media screen and (max-width: 600px) {
+	// @media screen and (max-width: 37.5rem) {
 	//     .trailing-icons > :nth-child(1) {
 	//         display: none;
 	//     }

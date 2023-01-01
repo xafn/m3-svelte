@@ -75,9 +75,9 @@
 		display: inline-flex;
 		vertical-align: top;
 		align-items: center;
-		height: 40px;
-		border-radius: 20px;
-		padding: 0 24px;
+		height: 2.5rem;
+		border-radius: 1.25rem;
+		padding: 0 1.5rem;
 		transition: all 0.2s var(--md-sys-motion-easing-standard);
 	}
 
@@ -93,7 +93,7 @@
 		pointer-events: none;
 		aspect-ratio: 1 / 1;
 		margin: auto;
-		border-radius: 100px;
+		border-radius: 6.25rem;
 
 		@keyframes ripple {
 			to {
@@ -116,12 +116,12 @@
 	.slot {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 0.5rem;
 		box-sizing: border-box;
 	}
 
 	.icon-button {
-		padding-left: 16px;
+		padding-left: 1rem;
 	}
 
 	.tint {
@@ -196,7 +196,7 @@
 	.button-outlined {
 		background-color: transparent;
 		color: var(--md-sys-color-primary);
-		border: 1px solid var(--md-sys-color-outline);
+		border: 0.0625rem solid var(--md-sys-color-outline);
 		@include defaultTint(var(--md-sys-color-primary));
 
 		path {
@@ -207,7 +207,7 @@
 	.button-text {
 		background-color: transparent;
 		color: var(--md-sys-color-primary);
-		padding: 0 12px;
+		padding: 0 0.75rem;
 		@include defaultTint(var(--md-sys-color-primary));
 
 		path {
@@ -217,7 +217,7 @@
 	.button-snackbar {
 		background-color: transparent;
 		color: var(--md-sys-color-inverse-primary);
-		padding: 0 12px;
+		padding: 0 0.75rem;
 		@include defaultTint(var(--md-sys-color-primary));
 	}
 </style>

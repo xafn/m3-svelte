@@ -12,8 +12,8 @@
 	.switch {
 		position: relative;
 		display: inline-block;
-		width: 52px;
-		height: 32px;
+		width: 3.25rem;
+		height: 2rem;
 
 		input {
 			opacity: 0;
@@ -30,8 +30,8 @@
 		right: 0;
 		bottom: 0;
 		transition: 0.4s;
-		border-radius: 100px;
-		border: 2px solid var(--md-sys-color-outline);
+		border-radius: 6.25rem;
+		border: 0.125rem solid var(--md-sys-color-outline);
 		background-color: var(--md-sys-color-surface-variant);
 
 		&:before {
@@ -40,11 +40,11 @@
 			align-items: center;
 			justify-content: center;
 			content: '';
-			height: 16px;
-			width: 16px;
-			left: 6px;
-			bottom: 6px;
-			border-radius: 100px;
+			height: 1rem;
+			width: 1rem;
+			left: 0.375rem;
+			bottom: 0.375rem;
+			border-radius: 6.25rem;
 			background-color: var(--md-sys-color-outline);
 			transition: all 0.4s var(--md-sys-motion-easing-standard);
 		}
@@ -52,12 +52,12 @@
 		&::after {
 			position: absolute;
 			opacity: 0;
-			left: -10px;
-			top: -10px;
+			left: -0.625rem;
+			top: -0.625rem;
 			content: '';
-			border-radius: 100px;
-			height: 48px;
-			width: 48px;
+			border-radius: 6.25rem;
+			height: 3rem;
+			width: 3rem;
 			background-color: var(--md-sys-color-on-surface);
 			transition: all 0.4s var(--md-sys-motion-easing-standard);
 		}
@@ -75,23 +75,23 @@
 
 		+ .slider:before {
 			background-color: var(--md-sys-color-on-primary);
-			transform: translateX(20px);
-			height: 24px;
-			width: 24px;
-			left: 2px;
-			bottom: 2px;
+			transform: translateX(1.25rem);
+			height: 1.5rem;
+			width: 1.5rem;
+			left: 0.125rem;
+			bottom: 0.125rem;
 		}
 
 		+ .slider::after {
 			background-color: var(--md-sys-color-on-surface-variant);
-			transform: translateX(20px);
+			transform: translateX(1.25rem);
 		}
 	}
 
 	.switch:active .slider:before {
 		transition-delay: 0.2s;
-		height: 28px;
-		width: 28px;
+		height: 1.75rem;
+		width: 1.75rem;
 		left: 0;
 		bottom: 0;
 	}

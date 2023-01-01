@@ -96,7 +96,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
+		gap: 0.5rem;
 	}
 
 	.extended-text {
@@ -113,30 +113,30 @@
 	}
 
 	.fab-default {
-		height: 56px;
-		width: 56px;
-		border-radius: 16px;
-		padding: 16px;
+		height: 3.5rem;
+		width: 3.5rem;
+		border-radius: 1rem;
+		padding: 1rem;
 	}
 
 	.fab-small {
-		height: 40px;
-		width: 40px;
-		border-radius: 12px;
-		padding: 12px;
+		height: 2.5rem;
+		width: 2.5rem;
+		border-radius: 0.75rem;
+		padding: 0.75rem;
 	}
 
 	.fab-large {
-		height: 96px;
-		width: 96px;
-		border-radius: 28px;
-		padding: 28px;
+		height: 6rem;
+		width: 6rem;
+		border-radius: 1.75rem;
+		padding: 1.75rem;
 	}
 
 	.fab-extended {
-		height: 56px;
-		min-width: 80px;
-		border-radius: 16px;
-		padding: 16px;
+		height: 3.5rem;
+		min-width: 5rem;
+		border-radius: 1rem;
+		padding: 1rem;
 	}
 </style>

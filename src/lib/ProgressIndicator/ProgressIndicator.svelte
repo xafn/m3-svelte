@@ -43,7 +43,7 @@
 		-moz-appearance: none;
 		appearance: none;
 		border: 0;
-		height: 4px;
+		height: 0.25rem;
 		border-radius: 0;
 		width: auto;
 		position: relative;
@@ -71,7 +71,7 @@
 	.progress-value-2 {
 		display: inline-block;
 		position: absolute;
-		height: 4px;
+		height: 0.25rem;
 		background-color: var(--md-sys-color-primary);
 	}
 

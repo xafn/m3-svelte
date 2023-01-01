@@ -52,19 +52,19 @@
         display: flex;
 		box-sizing: border-box;
 		justify-content: space-between;
-		padding-top: 4px;
-		padding-bottom: 4px;
-		padding-left: 16px;
-		padding-right: 8px;
-        height: 48px;
-		gap: 24px;
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+		padding-left: 1rem;
+		padding-right: 0.5rem;
+        height: 3rem;
+		gap: 1.5rem;
 		align-items: center;
-		border-radius: 4px;
-		min-width: 200px;
-		max-width: 560px;
+		border-radius: 0.25rem;
+		min-width: 12.5rem;
+		max-width: 35rem;
 		position: fixed;
-		margin-left: 36px;
-		margin-right: 36px;
+		margin-left: 2.25rem;
+		margin-right: 2.25rem;
 		z-index: 99;
 		left: 0;
 		right: 0;
@@ -92,12 +92,12 @@
 
     .buttons {
         display: flex;
-        gap: 12px;
+        gap: 0.75rem;
         align-items: center;
     }
 
     .closeIcon {
-        padding-right: 12px;
+        padding-right: 0.75rem;
 		fill: var(--md-sys-color-inverse-on-surface);
     }
 

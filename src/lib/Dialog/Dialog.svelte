@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import { quadInOut } from 'svelte/easing';
+	import { slide, fade } from 'svelte/transition';
+	import { expoOut } from 'svelte/easing';
 	import Svg from '$lib/SVG/Svg.svelte';
 	export let open = false;
 	export let fullscreen = false;
@@ -42,7 +42,7 @@
 		role="dialog"
 		class:fullscreen
 		aria-modal="true"
-		transition:fade={{ easing: quadInOut, duration: 150 }}
+		transition:slide={{ easing: expoOut, duration: 600 }}
 	>
 		<div class="main">
 			<div class="header" class:icon>
@@ -76,7 +76,13 @@
 
 		<div class="slot"><slot /></div>
 	</div>
-	<span class="scrim" on:click={() => (open = !open)} on:keypress={() => (open = !open)} />
+
+	<span
+		transition:fade|local={{ easing: expoOut, duration: 300 }}
+		class="scrim"
+		on:click={() => (open = !open)}
+		on:keypress={() => (open = !open)}
+	/>
 {/if}
 
 <style lang="scss">
@@ -84,15 +90,15 @@
 
 	.modal {
 		background-color: var(--md-sys-color-surface);
-		min-width: 280px;
-		max-width: 560px;
+		min-width: 17.5rem;
+		max-width: 35rem;
 		position: fixed;
 		overflow-y: scroll;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		border-radius: 28px;
-		padding: 24px;
+		border-radius: 1.75rem;
+		padding: 1.5rem;
 		z-index: 999;
 
 		&::-webkit-scrollbar {
@@ -103,7 +109,7 @@
 	.header {
 		display: flex;
 		justify-content: flex-start;
-		gap: 16px;
+		gap: 1rem;
 	}
 
 	.icon {
@@ -123,13 +129,13 @@
 	.description {
 		@include body-medium;
 		color: var(--md-sys-color-on-surface-variant);
-		padding-top: 16px;
+		padding-top: 1rem;
 	}
 
 	.buttons {
-		padding-top: 24px;
+		padding-top: 1.5rem;
 		display: flex;
-		gap: 8px;
+		gap: 0.5rem;
 		justify-content: flex-end;
 	}
 

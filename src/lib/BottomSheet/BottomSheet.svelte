@@ -79,7 +79,7 @@
 		display: block;
 		background-color: var(--md-sys-color-surface);
 		width: 100%;
-		max-width: 640px;
+		max-width: 40rem;
 		max-height: 50%;
 		margin-right: auto;
 		margin-left: auto;
@@ -92,7 +92,7 @@
 		top: 50%;
 		height: 100vh;
 		bottom: 0;
-		border-radius: 28px 28px 0 0;
+		border-radius: 1.75rem 1.75rem 0 0;
 		z-index: 999;
 		box-shadow: var(--md-sys-elevation-level1);
 		transition: all 0.4s var(--md-sys-motion-easing-standard);
@@ -106,9 +106,9 @@
 	}
 	.drag-handle {
 		background-color: var(--md-sys-color-on-surface-variant);
-		border-radius: 100px;
-		height: 4px;
-		width: 32px;
+		border-radius: 6.25rem;
+		height: 0.25rem;
+		width: 2rem;
 		opacity: 0.4;
 	}
 
@@ -119,18 +119,18 @@
 	.drag-handle-touch-target {
 		cursor: pointer;
 		width: 25%;
-		padding-top: 22px;
-		padding-bottom: 22px;
+		padding-top: 1.375rem;
+		padding-bottom: 1.375rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
 	.slot {
-		width: calc(100% - 48px);
-		padding-bottom: 22px;
-		padding-left: 24px;
-		padding-right: 24px;
+		width: calc(100% - 3rem);
+		padding-bottom: 1.375rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 		overflow-x: hidden;
 		overflow-y: hidden;
 

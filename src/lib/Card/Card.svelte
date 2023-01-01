@@ -27,12 +27,12 @@
 		height: max-content;
 		width: max-content;
 		position: relative;
-		border-radius: 12px;
+		border-radius: 0.75rem;
 		overflow: hidden;
 	}
 
 	.defaultPadding {
-		padding: 16px;
+		padding: 1rem;
 	}
 
 	.slot {
@@ -64,7 +64,7 @@
 	}
 
 	.card-outlined {
-		border: 1px solid var(--md-sys-color-outline);
+		border: 0.0625rem solid var(--md-sys-color-outline);
 	}
 
 	.card-filled {
