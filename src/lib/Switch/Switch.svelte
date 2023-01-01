@@ -89,6 +89,7 @@
 	}
 
 	.switch:active .slider:before {
+		transition-delay: 0.2s;
 		height: 28px;
 		width: 28px;
 		left: 0;

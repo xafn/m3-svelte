@@ -8,6 +8,7 @@
 	export let type = 'filled';
 	export let disabled = false;
 	export let fullWidth = false;
+	export let href = '';
 
 	/**
 	 * Pass in an SVG path.
@@ -15,10 +16,9 @@
 	export let icon = '';
 
 	let ripple = false;
-	let timeout: ReturnType<typeof setTimeout>;
 	function rippleAnimation() {
 		ripple = false;
-		timeout = setTimeout(() => (ripple = true), 1);
+		setTimeout(() => (ripple = true), 1);
 	}
 </script>
 
@@ -96,18 +96,17 @@
 		border-radius: 100px;
 
 		@keyframes ripple {
-		to {
-			transform: scale(8);
-			opacity: 0;
+			to {
+				transform: scale(20);
+				opacity: 0;
+			}
 		}
-	}
 
 		&.animation {
 			opacity: 0.08;
 			animation: ripple 1s forwards ease-out;
 		}
 	}
-
 
 	.fullWidth {
 		width: 100%;
@@ -137,17 +136,17 @@
 		transition: all 0.2s var(--md-sys-motion-easing-standard);
 	}
 
-	@mixin defaultTint($color) {
+	@mixin defaultTint($color, $hover: 0.08, $active: 0.16) {
 		.tint,
 		.ripple {
 			background-color: $color;
 		}
 
 		&:hover .tint {
-			opacity: 0.08;
+			opacity: $hover;
 		}
 		&:active .tint {
-			opacity: 0.16;
+			opacity: $active;
 		}
 	}
 
@@ -155,25 +154,14 @@
 		background-color: var(--md-sys-color-surface);
 		color: var(--md-sys-color-primary);
 		box-shadow: var(--md-sys-elevation-level1);
+		@include defaultTint(var(--md-sys-color-on-surface), 0.16, 0.2);
 
-		path {
-			fill: var(--md-sys-color-primary);
-		}
-		.tint,
-		.ripple {
-			background-color: var(--md-sys-color-primary);
+		.tint {
 			opacity: 0.08;
 		}
 
-		&:hover {
-			box-shadow: var(--md-sys-elevation-level2);
-			.tint {
-				opacity: 0.16;
-			}
-		}
-
-		&:active .tint {
-			opacity: 0.2;
+		path {
+			fill: var(--md-sys-color-primary);
 		}
 	}
 

@@ -1,6 +1,7 @@
 <script>
 	import BottomSheet from '$lib/BottomSheet/BottomSheet.svelte';
 	import Button from '$lib/Button/Button.svelte';
+	import Card from '$lib/Card/Card.svelte';
 	import Dialog from '$lib/Dialog/Dialog.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import Fab from '$lib/FAB/FAB.svelte';
@@ -13,16 +14,16 @@
 	let snackbarOpen = false;
 	let bottomSheetOpen = false;
 
-	let appBar = "center";
-
 	const appBars = {
 		"center": 6,
 		"small": 6,
 		"medium": 10,
 		"large": 12
 	}
-
+	
+	let appBar = "center";
 	let index = 0;
+
 	function appBarCycle() {
 		index = index === 3 ? 0 : index +=1;
 		appBar = Object.keys(appBars)[index];
@@ -41,7 +42,7 @@
 </TopAppBar>
 
 <main class="wrapper" style="margin-top: {appBars[appBar]}rem">
-	<h1>Material 3 Svelte</h1>
+	<h1>Svelte Material 3</h1>
 	<p>Svelte UI component library for Google's Material 3.</p>
 
 	<div class="components">
@@ -139,7 +140,7 @@
 
 		<div>
 			<div class="label-large">Text Input</div>
-			<TextInput />
+			<TextInput/>
 			<TextInput type="outlined" />
 		</div>
 
@@ -148,6 +149,30 @@
 			<Button on:click={() => (bottomSheetOpen = !bottomSheetOpen)} type="outlined"
 				>heh bottom</Button
 			>
+		</div>
+
+		<div>
+			<div class="label-large">Card</div>
+			<div class="cards">
+				<Card type="elevated" defaultPadding>
+					<div class="title-large">yoppers</div>
+					<p>oh the misery iudfviufdhiuvdfiuhiu</p>
+	
+					<Button type="tonal">yop</Button>
+				</Card>
+				<Card type="filled" defaultPadding>
+					<div class="title-large">yoppers</div>
+					<p>oh the misery iudfviufdhiuvdfiuhiu</p>
+	
+					<Button type="outlined">yop</Button>
+				</Card>
+				<Card type="outlined" defaultPadding>
+					<div class="title-large">yoppers</div>
+					<p>oh the misery iudfviufdhiuvdfiuhiu</p>
+	
+					<Button type="filled">yop</Button>
+				</Card>
+			</div>
 		</div>
 
 		<BottomSheet bind:open={bottomSheetOpen}>
@@ -178,6 +203,8 @@
 				</p>
 			</div>
 		</BottomSheet>
+
+
 	</div>
 </main>
 
@@ -192,10 +219,11 @@
 		gap: 2rem;
 	}
 
-	.fabs {
+	.fabs, .cards {
 		display: flex;
 		flex-wrap: wrap;
 		margin-top: 1rem;
 		gap: 1rem;
 	}
+
 </style>
