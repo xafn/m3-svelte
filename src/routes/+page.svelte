@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
 	import BottomSheet from '$lib/BottomSheet/BottomSheet.svelte';
 	import Button from '$lib/Button/Button.svelte';
 	import Card from '$lib/Card/Card.svelte';
 	import Dialog from '$lib/Dialog/Dialog.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import Fab from '$lib/FAB/FAB.svelte';
+	// import Menu from '$lib/Menu/Menu.svelte';
 	import ProgressIndicator from '$lib/ProgressIndicator/ProgressIndicator.svelte';
 	import Snackbar from '$lib/Snackbar/Snackbar.svelte';
 	import Switch from '$lib/Switch/Switch.svelte';
@@ -14,29 +15,25 @@
 	let snackbarOpen = false;
 	let bottomSheetOpen = false;
 
-	const appBars = {
-		"center": 6,
-		"small": 6,
-		"medium": 10,
-		"large": 12
-	}
-	
-	let appBar = "center";
+	const appBars: { [key: string]: number } = {
+		center: 6,
+		small: 6,
+		medium: 10,
+		large: 12
+	};
+
+	let appBar = 'center';
 	let index = 0;
 
 	function appBarCycle() {
-		index = index === 3 ? 0 : index +=1;
+		index = index === 3 ? 0 : (index += 1);
 		appBar = Object.keys(appBars)[index];
 	}
 </script>
 
 <TopAppBar fixed type={appBar}>
 	<svelte:fragment slot="nav-icon">
-		<Button
-			type="text"
-			on:click={appBarCycle}
-			icon="M17.05 38.65q-5.75-2.1-9.4-7.175Q4 26.4 4 19.95q0-1.35.225-2.75t.675-2.75L2 16.15 0 12.8l9.5-5.5 5.45 9.4-3.4 2-2.45-4.15q-.5 1.35-.775 2.725T8.05 20.05q0 5.35 3.1 9.475T19.1 35.2ZM31.3 13.8v-4h4.8q-2.2-2.75-5.375-4.25T24 4.05q-3.1 0-5.775 1.1-2.675 1.1-4.725 3L11.45 4.6Q14 2.5 17.2 1.275T23.95.05q4.15 0 7.875 1.625Q35.55 3.3 38.3 6.25V2.8h4v11Zm-1.4 30.55-9.45-5.45 5.5-9.45 3.35 2-2.3 4.1q5.6-.95 9.275-5.325Q39.95 25.85 39.95 20.05q0-.85-.1-1.65-.1-.8-.3-1.6h4q.2.8.3 1.6.1.8.1 1.6 0 6.9-4.2 12.25t-10.85 7L31.95 41Z"
-		/>
+		<Button type="text" on:click={appBarCycle} icon="change_circle" />
 	</svelte:fragment>
 	<svelte:fragment slot="title">Svelte Material 3</svelte:fragment>
 </TopAppBar>
@@ -54,48 +51,24 @@
 		<div>
 			<div class="label-large">Progress Indicator</div>
 			<ProgressIndicator value={29} />
-			<br/>
+			<br />
 			<ProgressIndicator />
 		</div>
 
 		<div>
 			<div class="label-large">Buttons</div>
 			<Button type="elevated">Elevated</Button>
-			<Button
-				type="filled"
-				icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-			>
-				Filled
-			</Button>
+			<Button type="filled" icon="camera">Filled</Button>
 
-			<Button
-				type="tonal"
-				icon="M24 34.7q3.6 0 6.05-2.45 2.45-2.45 2.45-6.05 0-3.65-2.45-6.075Q27.6 17.7 24 17.7q-3.65 0-6.075 2.425Q15.5 22.55 15.5 26.2q0 3.6 2.425 6.05Q20.35 34.7 24 34.7Zm-16.75 8q-1.6 0-2.775-1.175Q3.3 40.35 3.3 38.75V13.6q0-1.6 1.175-2.8Q5.65 9.6 7.25 9.6h6.95l3.95-4.65H29.9l3.9 4.65h6.95q1.6 0 2.8 1.2 1.2 1.2 1.2 2.8v25.15q0 1.6-1.2 2.775-1.2 1.175-2.8 1.175Z"
-			>
-				Tonal
-			</Button>
+			<Button type="tonal" icon="edit">Tonal</Button>
 			<Button type="outlined">Outlined</Button>
 			<Button type="text">Text</Button>
 
 			<div class="fabs">
-				<Fab
-					type="small"
-					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-				/>
-				<Fab
-					type="default"
-					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-				/>
-				<Fab
-					type="large"
-					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-				/>
-				<Fab
-					type="extended"
-					icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-				>
-					Extended??
-				</Fab>
+				<Fab type="small" icon="web" />
+				<Fab type="default" icon="support" />
+				<Fab type="large" icon="edit" />
+				<Fab type="extended" icon="extension">Extended??</Fab>
 			</div>
 		</div>
 
@@ -109,10 +82,7 @@
 			<Button on:click={() => (modalOpen = !modalOpen)} type="tonal">Open Dialogue</Button>
 		</div>
 
-		<Dialog
-			bind:open={modalOpen}
-			icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-		>
+		<Dialog bind:open={modalOpen} icon="settings">
 			<svelte:fragment slot="title">This is a dialogue</svelte:fragment>
 			<svelte:fragment slot="description">
 				Dear reader, hope you have a wonderful day. And your tomorrow will be even better. First I
@@ -140,7 +110,7 @@
 
 		<div>
 			<div class="label-large">Text Input</div>
-			<TextInput/>
+			<TextInput />
 			<TextInput type="outlined" />
 		</div>
 
@@ -151,25 +121,29 @@
 			>
 		</div>
 
+		<!-- <div>
+			<Menu />
+		</div> -->
+
 		<div>
 			<div class="label-large">Card</div>
 			<div class="cards">
 				<Card type="elevated" defaultPadding>
 					<div class="title-large">yoppers</div>
 					<p>oh the misery iudfviufdhiuvdfiuhiu</p>
-	
+
 					<Button type="tonal">yop</Button>
 				</Card>
 				<Card type="filled" defaultPadding>
 					<div class="title-large">yoppers</div>
 					<p>oh the misery iudfviufdhiuvdfiuhiu</p>
-	
+
 					<Button type="outlined">yop</Button>
 				</Card>
 				<Card type="outlined" defaultPadding>
 					<div class="title-large">yoppers</div>
 					<p>oh the misery iudfviufdhiuvdfiuhiu</p>
-	
+
 					<Button type="filled">yop</Button>
 				</Card>
 			</div>
@@ -203,8 +177,6 @@
 				</p>
 			</div>
 		</BottomSheet>
-
-
 	</div>
 </main>
 
@@ -219,11 +191,11 @@
 		gap: 2rem;
 	}
 
-	.fabs, .cards {
+	.fabs,
+	.cards {
 		display: flex;
 		flex-wrap: wrap;
 		margin-top: 1rem;
 		gap: 1rem;
 	}
-
 </style>

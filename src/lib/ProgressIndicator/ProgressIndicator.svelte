@@ -28,6 +28,7 @@
 	class="progress"
 	{value}
 	{max}
+	{...$$restProps}
 >
 	<!-- Indeterminate progress value -->
 	{#if !value}

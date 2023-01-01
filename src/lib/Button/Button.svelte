@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Svg from '$lib/SVG/Svg.svelte';
-
 	/**
 	 * Specify the type of button. Snackbar type should not be used anywhere except snackbars.
 	 * @type {"elevated" | "filled" | "tonal" | "outlined" | "text" | "snackbar"}
@@ -11,7 +9,7 @@
 	export let href = '';
 
 	/**
-	 * Pass in an SVG path.
+	 * Pass in an SVG .icon.
 	 */
 	export let icon = '';
 
@@ -42,6 +40,7 @@
 	on:click={rippleAnimation}
 	class="{icon ? 'icon-button' : ''} button-{type}"
 	class:fullWidth
+	{...$$restProps}
 >
 	{#if ripple}
 		<span class="ripple" class:animation={ripple} />
@@ -49,9 +48,7 @@
 	<span class="tint" />
 	<div class="slot">
 		{#if icon}
-			<Svg viewBoxHeight={48} svgHeight={18}>
-				<path d={icon} />
-			</Svg>
+		<div class="icon">{icon}</div>
 		{/if}
 
 		{#if $$slots}
@@ -120,6 +117,11 @@
 		box-sizing: border-box;
 	}
 
+	.icon {
+		@include icon;
+		font-size: 18px;
+	}
+
 	.icon-button {
 		padding-left: 1rem;
 	}
@@ -160,7 +162,7 @@
 			opacity: 0.08;
 		}
 
-		path {
+		.icon {
 			fill: var(--md-sys-color-primary);
 		}
 	}
@@ -170,7 +172,7 @@
 		color: var(--md-sys-color-on-primary);
 		@include defaultTint(var(--md-sys-color-on-primary));
 
-		path {
+		.icon {
 			fill: var(--md-sys-color-on-primary);
 		}
 
@@ -184,7 +186,7 @@
 		color: var(--md-sys-color-on-secondary-container);
 		@include defaultTint(var(--md-sys-color-on-secondary-container));
 
-		path {
+		.icon {
 			fill: var(--md-sys-color-on-secondary-container);
 		}
 
@@ -199,7 +201,7 @@
 		border: 0.0625rem solid var(--md-sys-color-outline);
 		@include defaultTint(var(--md-sys-color-primary));
 
-		path {
+		.icon {
 			fill: var(--md-sys-color-primary);
 		}
 	}
@@ -210,7 +212,7 @@
 		padding: 0 0.75rem;
 		@include defaultTint(var(--md-sys-color-primary));
 
-		path {
+		.icon {
 			fill: var(--md-sys-color-primary);
 		}
 	}

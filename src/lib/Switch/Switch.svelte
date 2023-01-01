@@ -4,7 +4,7 @@
 </script>
 
 <label class="switch">
-	<input type="checkbox" on:click bind:checked {disabled} />
+	<input type="checkbox" on:click bind:checked {disabled} {...$$restProps} />
 	<span class="slider" />
 </label>
 

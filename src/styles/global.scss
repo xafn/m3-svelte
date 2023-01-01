@@ -1,0 +1,44 @@
+h1 {
+    font-family: var(--md-sys-typescale-display-large-font-family-name);
+    font-style: var(--md-sys-typescale-display-large-font-family-style);
+    font-weight: var(--md-sys-typescale-display-large-font-weight);
+    font-size: var(--md-sys-typescale-display-large-font-size);
+    letter-spacing: var(--md-sys-typescale-display-large-tracking);
+    line-height: var(--md-sys-typescale-display-large-height);
+    text-transform: var(--md-sys-typescale-display-large-text-transform);
+    text-decoration: var(--md-sys-typescale-display-large-text-decoration);
+}
+
+p {
+    font-family: var(--md-sys-typescale-body-large-font-family-name);
+    font-style: var(--md-sys-typescale-body-large-font-family-style);
+    font-weight: var(--md-sys-typescale-body-large-font-weight);
+    font-size: var(--md-sys-typescale-body-large-font-size);
+    letter-spacing: var(--md-sys-typescale-body-large-tracking);
+    line-height: var(--md-sys-typescale-body-large-height);
+    text-transform: var(--md-sys-typescale-body-large-text-transform);
+    text-decoration: var(--md-sys-typescale-body-large-text-decoration);
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+}
+
+.wrapper {
+    margin-inline: auto;
+    width: min(90%, 70rem);
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    transition: margin-top 0.2s var(--md-sys-motion-easing-standard);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}

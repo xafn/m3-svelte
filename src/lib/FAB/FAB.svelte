@@ -8,7 +8,7 @@
 	export let type = 'default';
 	export let icon = '';
 
-	const iconSizes = {
+	const iconSizes: { [key: string]: number } = {
 		default: 24,
 		small: 24,
 		large: 36,
@@ -25,10 +25,7 @@
 *** 
 **Example usage**   
 ```tsx
-	<Fab
-		type="extended"
-		icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-	>
+	<Fab type="extended" icon="warning">
 		Edit
 	</Fab>
 ```
@@ -36,12 +33,10 @@
 [M3 FAB guidelines](https://m3.material.io/components/floating-action-button/guidelines)  
 [M3 Extended FAB guidelines](https://m3.material.io/components/extended-fab/guidelines)
 -->
-<button on:click class="fab-{type}">
+<button on:click class="fab-{type}" {...$$restProps}>
 	<span class="tint" />
 	<div class="slot">
-		<Svg viewBoxHeight={48} svgHeight={iconSizes[type]}>
-			<path d={icon} />
-		</Svg>
+		<div style="font-size: {iconSizes[type]}px;" class="icon">{icon}</div>
 		{#if type === 'extended'}
 			<div class="extended-text"><slot /></div>
 		{/if}
@@ -107,8 +102,9 @@
 	[class*='fab-'] {
 		background-color: var(--md-sys-color-primary-container);
 
-		path {
-			fill: var(--md-sys-color-on-primary-container);
+		.icon {
+			@include icon;
+			color: var(--md-sys-color-on-primary-container);
 		}
 	}
 

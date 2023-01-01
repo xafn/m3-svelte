@@ -45,11 +45,9 @@
 		transition:slide={{ easing: expoOut, duration: 600 }}
 	>
 		<div class="main">
-			<div class="header" class:icon>
+			<div class="header" class:hasIcon={icon}>
 				{#if icon}
-					<Svg viewBoxHeight={48} svgHeight={24}>
-						<path d={icon} />
-					</Svg>
+					<div class="icon">{icon}</div>
 				{/if}
 				{#if $$slots.title}
 					<div class="title">
@@ -108,17 +106,22 @@
 
 	.header {
 		display: flex;
-		justify-content: flex-start;
 		gap: 1rem;
 	}
 
-	.icon {
+	.hasIcon {
 		flex-direction: column;
 		align-items: center;
+		text-align: center;
+		gap: 16px;
+	}
 
-		path {
-			fill: var(--md-sys-color-secondary);
-		}
+	.icon {
+		@include icon;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		color: var(--md-sys-color-primary)
 	}
 
 	.title {
