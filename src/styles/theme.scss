@@ -43,6 +43,7 @@ body {
   width: min(90%, 70rem);
   margin-top: 6rem;
   margin-bottom: 4rem;
+  transition: margin-top 0.2s var(--md-sys-motion-easing-standard);
 }
 
 * {

@@ -12,25 +12,35 @@
 	let modalOpen = false;
 	let snackbarOpen = false;
 	let bottomSheetOpen = false;
+
+	let appBar = "center";
+
+	const appBars = {
+		"center": 6,
+		"small": 6,
+		"medium": 10,
+		"large": 12
+	}
+
+	let index = 0;
+	function appBarCycle() {
+		index = index === 3 ? 0 : index +=1;
+		appBar = Object.keys(appBars)[index];
+	}
 </script>
 
-<TopAppBar fixed type="center">
+<TopAppBar fixed type={appBar}>
 	<svelte:fragment slot="nav-icon">
 		<Button
 			type="text"
-			icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
+			on:click={appBarCycle}
+			icon="M17.05 38.65q-5.75-2.1-9.4-7.175Q4 26.4 4 19.95q0-1.35.225-2.75t.675-2.75L2 16.15 0 12.8l9.5-5.5 5.45 9.4-3.4 2-2.45-4.15q-.5 1.35-.775 2.725T8.05 20.05q0 5.35 3.1 9.475T19.1 35.2ZM31.3 13.8v-4h4.8q-2.2-2.75-5.375-4.25T24 4.05q-3.1 0-5.775 1.1-2.675 1.1-4.725 3L11.45 4.6Q14 2.5 17.2 1.275T23.95.05q4.15 0 7.875 1.625Q35.55 3.3 38.3 6.25V2.8h4v11Zm-1.4 30.55-9.45-5.45 5.5-9.45 3.35 2-2.3 4.1q5.6-.95 9.275-5.325Q39.95 25.85 39.95 20.05q0-.85-.1-1.65-.1-.8-.3-1.6h4q.2.8.3 1.6.1.8.1 1.6 0 6.9-4.2 12.25t-10.85 7L31.95 41Z"
 		/>
 	</svelte:fragment>
 	<svelte:fragment slot="title">Svelte Material 3</svelte:fragment>
-	<svelte:fragment slot="trailing-icons">
-		<Button
-			type="text"
-			icon="M39.8 14.95 33.25 8.4l2-2q.95-.95 2.325-.925 1.375.025 2.375.975l1.9 1.85q1 1 .925 2.35-.075 1.35-1.025 2.3ZM37.7 17 12.35 42.35h-6.5v-6.5l25.3-25.35Z"
-		/>
-	</svelte:fragment>
 </TopAppBar>
 
-<main class="wrapper">
+<main class="wrapper" style="margin-top: {appBars[appBar]}rem">
 	<h1>Material 3 Svelte</h1>
 	<p>Svelte UI component library for Google's Material 3.</p>
 

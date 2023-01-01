@@ -83,6 +83,7 @@
 	.title {
 		@include title-large;
 		color: var(--md-sys-color-on-surface);
+        width: max-content;
 	}
 
 	.trailing-icons {
