@@ -41,6 +41,10 @@ body {
 .wrapper {
   margin-inline: auto;
   width: min(90%, 70rem);
-  margin-top: 4rem;
+  margin-top: 6rem;
   margin-bottom: 4rem;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
