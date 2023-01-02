@@ -2,6 +2,7 @@
 	import BottomSheet from '$lib/BottomSheet/BottomSheet.svelte';
 	import Button from '$lib/Button/Button.svelte';
 	import Card from '$lib/Card/Card.svelte';
+	import Chip from '$lib/Chip/Chip.svelte';
 	import Dialog from '$lib/Dialog/Dialog.svelte';
 	import Divider from '$lib/Divider/Divider.svelte';
 	import Fab from '$lib/FAB/FAB.svelte';
@@ -14,6 +15,7 @@
 	let modalOpen = false;
 	let snackbarOpen = false;
 	let bottomSheetOpen = false;
+	let inputChip = true;
 
 	const appBars: { [key: string]: number } = {
 		center: 6,
@@ -125,6 +127,13 @@
 			<Menu />
 		</div> -->
 
+		<div>
+			<div class="label-large">Chips</div>
+			<Chip type="assist" icon="directions_car">Assist</Chip>
+			<Chip type="filter" on:click={() => (inputChip = !inputChip)} icon="check">Filter</Chip>
+			<Chip type="input" bind:open={inputChip} icon="settings" trailingIcon="close">Input</Chip>
+			<Chip type="input" icon="logout">Suggestion</Chip>
+		</div>
 		<div>
 			<div class="label-large">Card</div>
 			<div class="cards">
