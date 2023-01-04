@@ -87,13 +87,13 @@
 		<Dialog bind:open={modalOpen} icon="settings">
 			<svelte:fragment slot="title">This is a dialogue</svelte:fragment>
 			<svelte:fragment slot="description">
-				Dear reader, hope you have a wonderful day. And your tomorrow will be even better. First I
-				have to make an excuse for my bad writing skills. I hope you are fine with some mistakes as
-				english is not my main language. I only had it for some years at school. Second reason is
-				this is very hard for me. I never told it to anyone. But I feel like you are ready for the
-				real thing. Again, sorry for the bad english. Now to my big unfake. I'm actually 100% a
-				girl. thought do it a little earlier than you predicted. Sorry also for this. Have a nice
-				day. Best, the creatures under your skin.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum urna ligula,
+				a porta mi fermentum aliquam. Proin vulputate placerat consectetur. Curabitur dui neque,
+				bibendum vel sodales ac, blandit non mi. Quisque ante odio, elementum vehicula magna id,
+				volutpat congue ante. Nam pulvinar mauris id neque ornare, sed vulputate dui condimentum.
+				Vestibulum sagittis pretium lacus a fermentum. Sed at arcu id velit tincidunt luctus in a
+				enim. Aenean aliquam sagittis pharetra. Maecenas at blandit sem, vel congue velit. Nunc
+				commodo consectetur venenatis. Cras ac vestibulum odio.
 			</svelte:fragment>
 			<svelte:fragment slot="buttonPrimary">
 				<Button type="text" on:click={() => (modalOpen = !modalOpen)}>OK</Button>
@@ -112,7 +112,7 @@
 
 		<div>
 			<div class="label-large">Text Input</div>
-			<TextInput />
+			<TextInput closeIcon />
 			<TextInput type="outlined" />
 		</div>
 
@@ -132,7 +132,7 @@
 			<Chip type="assist" icon="directions_car">Assist</Chip>
 			<Chip type="filter" on:click={() => (inputChip = !inputChip)} icon="check">Filter</Chip>
 			<Chip type="input" bind:open={inputChip} icon="settings" trailingIcon="close">Input</Chip>
-			<Chip type="input" icon="logout">Suggestion</Chip>
+			<Chip type="input">Suggestion</Chip>
 		</div>
 		<div>
 			<div class="label-large">Card</div>
@@ -165,24 +165,23 @@
 				<br />
 				<Button fullWidth type="elevated">yoppers</Button>
 				<p>
-					What the fuck did you just fucking say about me, you little bitch? I'll have you know I
-					graduated top of my class in the Navy Seals, and I've been involved in numerous secret
-					raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare
-					and I'm the top sniper in the entire US armed forces. You are nothing to me but just
-					another target. I will wipe you the fuck out with precision the likes of which has never
-					been seen before on this Earth, mark my fucking words. You think you can get away with
-					saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting
-					my secret network of spies across the USA and your IP is being traced right now so you
-					better prepare for the storm, maggot. The storm that wipes out the pathetic little thing
-					you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill
-					you in over seven hundred ways, and that's just with my bare hands. Not only am I
-					extensively trained in unarmed combat, but I have access to the entire arsenal of the
-					United States Marine Corps and I will use it to its full extent to wipe your miserable ass
-					off the face of the continent, you little shit. If only you could have known what unholy
-					retribution your little "clever" comment was about to bring down upon you, maybe you would
-					have held your fucking tongue. But you couldn't, you didn't, and now you're paying the
-					price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're
-					fucking dead, kiddo.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum urna
+					ligula, a porta mi fermentum aliquam. Proin vulputate placerat consectetur. Curabitur dui
+					neque, bibendum vel sodales ac, blandit non mi. Quisque ante odio, elementum vehicula
+					magna id, volutpat congue ante. Nam pulvinar mauris id neque ornare, sed vulputate dui
+					condimentum. Vestibulum sagittis pretium lacus a fermentum. Sed at arcu id velit tincidunt
+					luctus in a enim. Aenean aliquam sagittis pharetra. Maecenas at blandit sem, vel congue
+					velit. Nunc commodo consectetur venenatis. Cras ac vestibulum odio. Integer non blandit
+					magna, scelerisque tincidunt dolor. Phasellus hendrerit arcu at velit semper sagittis.
+					<br/>
+					Proin congue vestibulum metus vitae suscipit. Duis iaculis vestibulum metus, eget
+					fermentum libero porta ut. Etiam vitae magna id ante blandit vestibulum id sed sem. Cras
+					finibus nisl at lectus volutpat, vel tristique ex tempor. Sed euismod, justo ac tincidunt
+					tempus, arcu odio lacinia diam, id imperdiet nisl ligula at purus. Praesent sagittis nisl
+					in lorem ullamcorper mollis. Nunc sodales nisi fringilla ante hendrerit dignissim. Fusce
+					scelerisque cursus justo, in tempus dui posuere ac. Mauris vitae diam tristique, ornare
+					augue eu, gravida erat. In auctor eget purus et lobortis. Nam nec libero scelerisque mi
+					porttitor gravida.
 				</p>
 			</div>
 		</BottomSheet>
